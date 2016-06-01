@@ -1,0 +1,30 @@
+.btn, .input-group-btn .btn {
+    text-transform: uppercase;
+    font-weight: bold;
+    will-change: box-shadow, transform;
+    border: none;
+    padding: 8px 30px;
+    font-size: 14px;
+}
+.panel-footer {
+    background-color: #E1E6EA;
+}
+.pull-right {
+    margin-right: 20px;
+}
+.btn.btn-raised.btn-danger, .input-group-btn .btn.btn-raised.btn-danger, .btn.btn-fab.btn-danger, .input-group-btn .btn.btn-fab.btn-danger, .btn-group-raised .btn.btn-danger, .btn-group-raised .input-group-btn .btn.btn-danger {
+    font-weight: bold;
+}
+#login-buttons .login-buttons-with-only-one-button .login-button {
+    display: inline-block;
+    border: none;
+    font-size: small;
+}
+.form-group .form-control {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    padding: 1em 1.5em;
+}
+.form-group {
+    padding-bottom: 0;
+}

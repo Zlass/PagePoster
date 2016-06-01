@@ -1,0 +1,105 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Facebook Page Poster</title>
+</head>
+
+<body>
+    {{>navbar}} {{>yield}}
+</body>
+
+<template name="welcome">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well ">
+                <h1>Welcome to the Facebook Page Poster</h1> {{#if currentUser}}
+                <h3>Select page to post to?</h3>
+                <h3 class="col-md-offset-5"><a href="connect" class="btn btn-primary connect">Go</a></h3> {{else}}
+                <h3>Please login first</h3>
+                <h3 class="col-md-offset-5">{{>loginButtons}}</h3> {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="navbar">
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Facebook Page Poster</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-inverse-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- If user is logged in -->
+                    {{#if currentUser}}
+                    <li><a href="connect" class="connect">connect</a></li>
+                    <li><a href="post">post</a></li>
+                    <li><a href="#">{{>loginButtons}}</a></li>
+                    <!-- If user is not logged in -->
+                    {{else}}
+                    <li><a href="#">{{>loginButtons }}</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="pages">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            <div>
+                <div class="form-group">
+                    {{#each pages}} {{>pageItem}} {{/each}}
+                    <a href="post">
+                        <button class="btn btn-raised btn-primary pull-right" id="select">select</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="pageItem">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="connected" {{checked}}> {{name}}
+                </label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="post">
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well" style="background-color:#edf1f4;">
+
+                <div class="panel panel-default">
+                    <form>
+                        <textarea class="form-control" rows="3" id="message" placeholder="Start writing your post here"></textarea>
+
+                        <div class="panel-footer">
+                            <div class="row">
+                                <span class="col-sm-1"><i class="material-icons btn">camera_alt</i></span>
+                                <!-- <span class="col-xs-6"></span> -->
+                                <span class="pull-right">
+                                <img src="http://simpleicon.com/wp-content/uploads/facebook-2.svg" alt="facebook" height="25" width="25"/>
+                                <i class="material-icons btn">alarm</i>
+                    <button type="submit" class="btn btn-raised btn-danger " id=submit>Publish</button></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
